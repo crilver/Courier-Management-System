@@ -1,0 +1,20 @@
+body{
+    background-color: beige;
+}
+
+hr{
+    border: 2px solid;
+}
+
+hr:first-child{
+    margin-top: 10px;
+}
+
+h1{
+    margin: 0;
+    text-align: center;
+}
+p{
+    padding: 0;
+    margin: 1rem;
+}
