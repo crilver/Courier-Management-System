@@ -17,6 +17,32 @@
         <hr>
     </header>
     <main>
+        <form>
+            <h2>Enter package details below: </h2>
+            <div class="inputGroup">
+                <div class="inputSubGroup">
+                    <label for="name">Recipient Name</label>
+                    <input id="name" type="text">
+                </div>
+                <div class="inputSubGroup">
+                    <label for="packageId">Package ID</label>
+                    <input id="packageId" type="number" min="0">
+                </div>
+                <div class="inputSubGroup">
+                    <label for="weight">Weight</label>
+                    <input id="weight" type="number" min="0">
+                </div>
+                <div class="inputSubGroup">
+                    <label for="address">Delivery Address</label>
+                    <input id="address" type="text">
+                </div>
+            </div>
+            <input id="submitBtn" type="submit" value="Submit">
+        </form>
+        <div class="resultMessage">
+            <p id="titleResult"></p>
+            <p id="dataResult"></p>
+        </div>
     </main>
 </body>
 </html>
