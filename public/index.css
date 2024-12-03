@@ -70,3 +70,17 @@ p{
 #dataResult{
     margin-top: 0;
 }
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+th{
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+}
+td{
+    border: 1px solid black;
+    font-weight: 500;
+}
