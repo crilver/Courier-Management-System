@@ -1,3 +1,6 @@
+// For initialization -> mergeSort function can be used to sort the
+// array in an efficient way to display it in the first render
+const packageDataList = [] // mergeSort(externalDisorderedArray)
 
 const existingIds = []
 
@@ -26,6 +29,24 @@ function processForm(e){
     }
     existingIds.push(idElm.value)
     showResponse([], trackingCode)
+
+    // Considering that all data is ordered because of Merge Sort Algotithm
+    // used in the initialization process, we can get a better performance
+    // using Binary Search to get the correct index where we should insert the new value 
+    binarySearchInput(packageDataList, weightElm.value)
+    const indexToInsert = binarySearch(packageDataList, weightElm.value)
+    
+    const tableBody = document.getElementById('tableBody')
+    const refElement = tableBody.children[indexToInsert]
+
+    const rowTag = document.createElement('tr')
+    rowTag.innerHTML = `
+            <td>${nameElm.value}</td>
+            <td>${idElm.value}</td>
+            <td>${addressElm.value}</td>
+            <td>${weightElm.value}</td>
+            <td>${trackingCode}</td>`
+    tableBody.insertBefore(rowTag, refElement)
 }
 
 // Input Verification 
@@ -112,4 +133,75 @@ function generateTrackingCode(packageId, weight) {
 // Verify duplicity on Tracking Codes
 function trackingIdExists(id){
     return existingIds.indexOf(id) != -1
+}
+
+// Merge Sort Algorithm
+// input:  Disordered Array
+// output: Ordered Array
+function mergeSort(baseArr){
+    // Single value or empty arrays are considered sorted
+    if( baseArr.length <= 1){
+        return baseArr
+    }
+
+    const midIndex = Math.floor(baseArr.length/2)
+    const leftArr = baseArr.slice(0,midIndex)
+    const rightArr = baseArr.slice(midIndex)
+
+    // Recursivity
+    const leftArrSorted = mergeSort(leftArr)
+    const rightArrSorted = mergeSort(rightArr)
+
+    return merge(leftArrSorted, rightArrSorted)
+}
+
+function merge(leftArr, rightArr){
+    const result = []
+    let i = 0
+    let j = 0
+
+    while( i < leftArr.length && j < rightArr.length ){
+        if( leftArr[i] < rightArr[j] ){
+            result.push(leftArr[i])
+            i++
+        }else{
+            result.push(rightArr[j])
+            j++
+        }
+    }
+
+    // Add to the end the remaining elements
+    return result.concat(leftArr.slice(i)).concat(rightArr.slice(j))
+}
+
+// Binary Search Algorithm -> to insert a new value
+// input:  Ordered Array, New Value to insert
+// output: none. MUTATES the original array to improve performance
+// Note: Use toSpliced to return a modified copy (less preformance because of the copy of all data)
+function binarySearchInput(baseArr, inputValue){
+    const indexToInsert = binarySearch(baseArr, inputValue)
+    if(inputValue <= baseArr[indexToInsert]){
+        baseArr.splice(indexToInsert, 0, inputValue)
+    }else{
+        baseArr.splice(indexToInsert+1, 0, inputValue)
+    }
+}
+
+function binarySearch(baseArr, inputValue){
+    let left = 0;
+    let right = baseArr.length - 1;
+
+    while (left < right) {
+        const mid = Math.floor((left + right) / 2);
+        if (baseArr[mid] === inputValue) {
+            return mid;
+        }
+        if (baseArr[mid] < inputValue) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    return left; // This return when left and right are equals
 }
