@@ -8,6 +8,54 @@
     <script src="./index.js"></script>
 </head>
 <body>
-    
+    <header>
+        <hr>
+        <h1>
+            <p>Webserver #1</p>
+            <p>Welcome to JSville Courier Management System!</p>
+        </h1>
+        <hr>
+    </header>
+    <main>
+        <form>
+            <h2>Enter package details below: </h2>
+            <div class="inputGroup">
+                <div class="inputSubGroup">
+                    <label for="name">Recipient Name</label>
+                    <input id="name" type="text">
+                </div>
+                <div class="inputSubGroup">
+                    <label for="packageId">Package ID</label>
+                    <input id="packageId" type="number" min="0">
+                </div>
+                <div class="inputSubGroup">
+                    <label for="weight">Weight</label>
+                    <input id="weight" type="number" min="0">
+                </div>
+                <div class="inputSubGroup">
+                    <label for="address">Delivery Address</label>
+                    <input id="address" type="text">
+                </div>
+            </div>
+            <input id="submitBtn" type="submit" value="Submit">
+        </form>
+        <div class="resultMessage">
+            <p id="titleResult"></p>
+            <p id="dataResult"></p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Recipient Name</th>
+                    <th>Package ID</th>
+                    <th>Delivery Address</th>
+                    <th>Weight (kg)</th>
+                    <th>Tracking Code</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </main>
 </body>
 </html>
