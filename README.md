@@ -20,7 +20,7 @@ The **Courier Management System** is a web application designed to efficiently m
 
 1. Clone this repository:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/crilver/Courier-Management-System.git
    cd courier-management-system
 
 2. Open the `index.html` file in any modern web browser to run the application locally.
