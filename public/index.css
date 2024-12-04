@@ -1,0 +1,86 @@
+body{
+    background-color: beige;
+}
+
+hr{
+    border: 2px solid;
+}
+
+hr:first-child{
+    margin-top: 10px;
+}
+
+h1{
+    margin: 0;
+    text-align: center;
+}
+p{
+    padding: 0;
+    margin: 1rem;
+}
+
+.inputGroup{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.inputSubGroup{
+    display: flex;
+    flex-direction: column;
+}
+
+#submitBtn{
+    margin-top: 15px;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 5px 10px;
+    border: 1px solid tan;
+    border-radius: 10px;
+    background-color:bisque;
+    cursor: pointer;
+    &:active{
+        background-color: tan;
+    }
+}
+
+.resultMessage{
+    text-align: justify;
+    margin: 15px;
+}
+
+.success{
+    font-weight: bolder;
+    font-size:x-large;
+    color:green;
+    margin-bottom: 0;
+}
+
+.error {
+    font-weight: bolder;
+    font-size: x-large;
+    color: red;
+    margin-bottom: 0;
+}
+
+.inputError{
+    border: 2px solid red;
+}
+
+#dataResult{
+    margin-top: 0;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+th{
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+}
+td{
+    border: 1px solid black;
+    font-weight: 500;
+}
